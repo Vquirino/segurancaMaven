@@ -12,29 +12,28 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Pattern;
 
 @Entity
-@Table(name = "produto")
+@Table(name="produto")
 public class Produto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name = "produto_id")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "produto_id")
 	private Long id;
 	
 	@Column(length = 50)
 	@Pattern(regexp = "[a-z A-Z]{2,50}", message = "Erro no Nome do Produto")
 	private String nomeProduto;
 	
-	@Column
 	@DecimalMin("1.00")
+	@Column
 	private Double preco;
 	
 	@Column
 	private String foto;
 	
 	public Produto() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Produto(Long id,
